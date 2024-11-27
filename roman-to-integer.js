@@ -20,13 +20,13 @@ rl.question("Enter a roman numeral: ", function(romanNumeral) {
 // convert the roman numeral to an integer
 
 function romanToInt(romanNumeral) {
-    var romanNumeral = romanNumeral.toUpperCase();
+    //var romanNumeral = romanNumeral.toUpperCase();
     var romanNumeralArray = romanNumeral.split('');
     var romanNumeralArrayLength = romanNumeralArray.length;
     var romanNumeralArrayValues = [];
-    var romanNumeralArrayValuesLength = romanNumeralArrayValues.length;
+    //var romanNumeralArrayValuesLength = romanNumeralArrayValues.length;
     var romanNumeralArrayValuesSum = 0;
-    var romanNumeralArrayValuesSumFinal = 0;
+    //var romanNumeralArrayValuesSumFinal = 0;
 
     for (var i = 0; i < romanNumeralArrayLength; i++) {
         switch (romanNumeralArray[i]) {
