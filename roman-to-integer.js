@@ -13,12 +13,33 @@ const rl = readline.createInterface({
 
 rl.question("Enter a roman numeral: ", function(romanNumeral) {
     var romanNumeral = romanNumeral.toUpperCase();
+
+    if (!isRomanNumeral(romanNumeral)) {
+        console.log('Invalid input. Please enter a valid roman numeral'); 
+        rl.close();
+        //exit the application
+        //process.exit();
+        return
+    }        
+
     console.log("The integer value of " + romanNumeral + " is " + romanToInt(romanNumeral));
     rl.close();
-    });
+});
+
+// check if the input is a valid roman numeral
+function isRomanNumeral(romanNumeral) {
+    var romanNumeralArray = romanNumeral.split('');
+    var romanNumeralArrayLength = romanNumeralArray.length;
+
+    for (var i = 0; i < romanNumeralArrayLength; i++) {
+        if (romanNumeralArray[i] !== 'I' && romanNumeralArray[i] !== 'V' && romanNumeralArray[i] !== 'X' && romanNumeralArray[i] !== 'L' && romanNumeralArray[i] !== 'C' && romanNumeralArray[i] !== 'D' && romanNumeralArray[i] !== 'M') {
+            return false;
+        }
+    }
+    return true;
+}
 
 // convert the roman numeral to an integer
-
 function romanToInt(romanNumeral) {
     //var romanNumeral = romanNumeral.toUpperCase();
     var romanNumeralArray = romanNumeral.split('');
@@ -65,6 +86,5 @@ function romanToInt(romanNumeral) {
             romanNumeralArrayValuesSum += romanNumeralArrayValues[i];
         }
     }
-
     return romanNumeralArrayValuesSum;
 }
