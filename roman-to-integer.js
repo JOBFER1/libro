@@ -14,6 +14,15 @@ const rl = readline.createInterface({
 rl.question("Enter a roman numeral: ", function(romanNumeral) {
     var romanNumeral = romanNumeral.toUpperCase();
 
+    // If user types 'help', definition of roman numerals will be displayed
+    if (romanNumeral === 'HELP') {
+        console.log('Roman numerals are the numbers that were used in ancient Rome, which employed combinations of letters from the Latin alphabet (I, V, X, L, C, D, M).');
+        console.log('The numbers 1 to 10 can be expressed in Roman numerals as follows:');
+        console.log('1: I, 2: II, 3: III, 4: IV, 5: V, 6: VI, 7: VII, 8: VIII, 9: IX, 10: X');
+        rl.close();
+        return;
+    }
+        
     if (!isRomanNumeral(romanNumeral)) {
         console.log('Invalid input. Please enter a valid roman numeral'); 
         rl.close();
